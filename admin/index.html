@@ -1,13 +1,66 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Admin Panel</title>
-  </head>
-  <body>
-    <!-- Netlify CMS interface -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-    <!-- Netlify Identity login widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Panel — Gleb Tkachenko</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .admin-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: var(--card);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    input, textarea {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: #1c1f23;
+      color: #fff;
+    }
+    button {
+      background: var(--accent);
+      border: none;
+      padding: 10px 18px;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h1>Admin Panel</h1>
+    <p>Welcome back, Gleb 👋 You can edit your content below.</p>
+
+    <h2>📝 About Section</h2>
+    <textarea id="aboutInput" rows="6"></textarea>
+
+    <h2>🎬 Add New Project</h2>
+    <input type="text" id="videoUrl" placeholder="YouTube video link" />
+    <textarea id="videoDesc" rows="3" placeholder="Description"></textarea>
+    <button id="addProjectBtn">Add Project</button>
+
+    <h2>💾 Save Changes</h2>
+    <button id="saveBtn">Save All</button>
+  </div>
+
+  <script>
+    // Простейшая защита — только тебе видно админку
+    const adminEmail = "tkachenko.hleb@gmail.com";
+    const entered = prompt("Enter admin email to access:");
+    if (entered !== adminEmail) {
+      alert("Access denied");
+      window.location.href = "/";
+    }
+  </script>
+</body>
 </html>
