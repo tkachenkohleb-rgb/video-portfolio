@@ -1,118 +1,87 @@
 :root {
-  --text: #f5f5f5;
-  --bg: #090909;
-  --card: rgba(255, 255, 255, 0.06);
-  --border: rgba(255, 255, 255, 0.1);
-  --glow: rgba(255, 255, 255, 0.08);
+  --bg: #0b0b0c;
+  --card: #0f1113;
+  --text: #e6e6e6;
+  --muted: #9aa0a6;
+  --accent: #1e90ff;
+}
+
+:root.light {
+  --bg: #f5f7fb;
+  --card: #fff;
+  --text: #111827;
+  --muted: #4b5563;
+  --accent: #1e90ff;
 }
 
 body {
   margin: 0;
-  font-family: "Inter", system-ui, sans-serif;
-  color: var(--text);
+  font-family: Inter, system-ui, Segoe UI, Roboto;
   background: var(--bg);
+  color: var(--text);
   min-height: 100vh;
+}
+
+.container {
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 16px;
+}
+
+.site-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  overflow-x: hidden;
+  padding: 16px 24px;
 }
 
-/* === ФОН === */
-.bg-logo {
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.08;
-  filter: blur(15px);
-  z-index: 0;
-  transition: transform 3s ease-out;
-  pointer-events: none;
-}
-
-.bg-ae {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg');
-  bottom: 8%;
-  left: -6%;
-}
-
-.bg-pr {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Premiere_Pro_CC_icon.svg');
-  top: -6%;
-  right: -6%;
-}
-
-/* === КОНТЕЙНЕР === */
-main {
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  padding: 80px 5%;
-}
-
-/* === КАРТОЧКИ === */
 .card {
-  width: min(750px, 90%);
   background: var(--card);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(25px) saturate(180%);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow:
-    0 4px 25px rgba(255, 255, 255, 0.05),
-    0 0 40px var(--glow),
-    0 0 100px rgba(0, 0, 0, 0.6) inset;
-  transform: translateY(40px);
-  opacity: 0;
-  animation: fadeUp 1s ease forwards;
+  padding: 18px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
-.card:nth-child(1) { animation-delay: 0.3s; }
-.card:nth-child(2) { animation-delay: 0.6s; }
-.card:nth-child(3) { animation-delay: 0.9s; }
-.card:nth-child(4) { animation-delay: 1.2s; }
-
-/* === КНОПКИ === */
-.contact-buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
 }
 
 .btn {
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #fff;
   text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
+  margin-right: 8px;
+  display: inline-block;
+  font-weight: 600;
 }
 
-.btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 15px currentColor;
+/* Соцсети: фирменные цвета */
+.btn.telegram {
+  background-color: #0088cc;
+}
+.btn.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.btn.email {
+  background-color: #ea4335;
 }
 
-#telegramBtn { background: #0088cc; }
-#instagramBtn { background: linear-gradient(45deg, #f09433, #e1306c, #bc2a8d); }
-#emailBtn { background: #ff5f40; }
-
-/* === АНИМАЦИИ === */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Тема */
+.theme-toggle button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* === ФУТЕР === */
 .site-footer {
+  padding: 18px;
   text-align: center;
-  margin-top: 60px;
-  color: rgba(255, 255, 255, 0.5);
-  z-index: 2;
+  color: var(--muted);
 }
