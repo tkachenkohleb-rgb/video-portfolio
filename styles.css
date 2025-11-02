@@ -1,87 +1,106 @@
 :root {
   --bg: #0b0b0c;
-  --card: #0f1113;
-  --text: #e6e6e6;
-  --muted: #9aa0a6;
-  --accent: #1e90ff;
-}
-
-:root.light {
-  --bg: #f5f7fb;
-  --card: #fff;
-  --text: #111827;
-  --muted: #4b5563;
-  --accent: #1e90ff;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #f5f5f5;
+  --accent: #00aaff;
 }
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, Segoe UI, Roboto;
-  background: var(--bg);
+  font-family: "Inter", system-ui, sans-serif;
   color: var(--text);
-  min-height: 100vh;
+  background: var(--bg);
+  overflow-x: hidden;
 }
 
-.container {
-  max-width: 980px;
-  margin: 28px auto;
-  padding: 16px;
+/* === ФОН ЛОГОТИПОВ === */
+.bg-logo {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  filter: blur(50px);
+  z-index: 0;
+  transition: transform 2s ease-out;
+}
+.bg-ae {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg');
+  bottom: -100px;
+  left: -100px;
+}
+.bg-pr {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Premiere_Pro_CC_icon.svg');
+  top: -100px;
+  right: -100px;
 }
 
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-}
-
+/* === КАРТОЧКИ === */
 .card {
-  background: var(--card);
-  padding: 18px;
-  margin-bottom: 18px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+  transition: all 0.6s ease;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+.card:hover {
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+/* === КНОПКИ === */
+.contact-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
 }
 
 .btn {
-  padding: 10px 14px;
-  border-radius: 8px;
-  color: #fff;
-  text-decoration: none;
-  margin-right: 8px;
-  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 10px;
   font-weight: 600;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Соцсети: фирменные цвета */
-.btn.telegram {
-  background-color: #0088cc;
-}
-.btn.instagram {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-}
-.btn.email {
-  background-color: #ea4335;
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px currentColor;
 }
 
-/* Тема */
-.theme-toggle button {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--text);
-  padding: 8px 10px;
-  border-radius: 8px;
-  cursor: pointer;
+#telegramBtn { background: #0088cc; }
+#instagramBtn { background: #e1306c; }
+#emailBtn { background: #ff5f40; }
+
+/* === АНИМАЦИИ === */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.site-footer {
-  padding: 18px;
-  text-align: center;
-  color: var(--muted);
+/* === ПЛАВНЫЙ СКРОЛЛ === */
+html {
+  scroll-behavior: smooth;
+}
+
+.site-header,
+.site-footer,
+.card {
+  z-index: 1;
+  position: relative;
 }
