@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "site"
+    label: "Site Settings"
+    files:
+      - file: "content/site.json"
+        label: "Site Info"
+        name: "site_meta"
+        fields:
+          - {label: "Author", name: "author", widget: "string"}
+          - {label: "Contact Text", name: "contact_blurb", widget: "text"}
+          - {label: "Telegram URL", name: "telegram", widget: "string"}
+          - {label: "Instagram URL", name: "instagram", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+
+  - name: "about"
+    label: "About Section"
+    files:
+      - file: "content/about.md"
+        label: "About Me"
+        name: "about"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "YouTube URL", name: "youtube_url", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
