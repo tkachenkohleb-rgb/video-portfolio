@@ -52,12 +52,12 @@ main {
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 60px 5%;
+  padding: 80px 5%;
 }
 
 /* === КАРТОЧКИ === */
 .card {
-  width: min(700px, 90%);
+  width: min(750px, 90%);
   background: var(--card);
   border: 1px solid var(--border);
   backdrop-filter: blur(25px) saturate(180%);
@@ -75,6 +75,7 @@ main {
 .card:nth-child(1) { animation-delay: 0.3s; }
 .card:nth-child(2) { animation-delay: 0.6s; }
 .card:nth-child(3) { animation-delay: 0.9s; }
+.card:nth-child(4) { animation-delay: 1.2s; }
 
 /* === КНОПКИ === */
 .contact-buttons {
@@ -108,9 +109,10 @@ main {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* === ФУТЕР === */
 .site-footer {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 60px;
   color: rgba(255, 255, 255, 0.5);
   z-index: 2;
 }
