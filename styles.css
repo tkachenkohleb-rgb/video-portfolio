@@ -1,9 +1,8 @@
 :root {
-  --bg: #0b0b0c;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --border: rgba(255, 255, 255, 0.1);
   --text: #f5f5f5;
-  --accent: #00aaff;
+  --bg: #090909;
+  --card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -12,48 +11,60 @@ body {
   color: var(--text);
   background: var(--bg);
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* === ФОН ЛОГОТИПОВ === */
+main {
+  position: relative;
+  z-index: 2;
+  padding: 40px 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* === ФОН === */
 .bg-logo {
   position: fixed;
-  width: 600px;
-  height: 600px;
+  width: 550px;
+  height: 550px;
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.08;
-  filter: blur(50px);
+  opacity: 0.09;
+  filter: blur(20px);
   z-index: 0;
-  transition: transform 2s ease-out;
+  transition: transform 3s ease-out;
+  pointer-events: none;
 }
+
 .bg-ae {
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg');
-  bottom: -100px;
-  left: -100px;
+  bottom: 5%;
+  left: -8%;
 }
+
 .bg-pr {
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Premiere_Pro_CC_icon.svg');
-  top: -100px;
-  right: -100px;
+  top: -8%;
+  right: -8%;
 }
 
 /* === КАРТОЧКИ === */
 .card {
-  position: relative;
-  background: var(--card-bg);
+  background: var(--card);
   border: 1px solid var(--border);
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px) saturate(150%);
   border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-  transition: all 0.6s ease;
-  animation: fadeUp 1s ease forwards;
+  padding: 28px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05), 0 0 60px rgba(0, 0, 0, 0.6) inset;
+  transform: translateY(30px);
   opacity: 0;
+  animation: fadeUp 1s ease forwards;
 }
-.card:hover {
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
-  transform: translateY(-4px);
-}
+
+.card:nth-child(1) { animation-delay: 0.3s; }
+.card:nth-child(2) { animation-delay: 0.5s; }
+.card:nth-child(3) { animation-delay: 0.7s; }
 
 /* === КНОПКИ === */
 .contact-buttons {
@@ -85,7 +96,7 @@ body {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -93,14 +104,16 @@ body {
   }
 }
 
-/* === ПЛАВНЫЙ СКРОЛЛ === */
-html {
-  scroll-behavior: smooth;
+/* === СТИЛИ ХЕДЕРА И ФУТЕРА === */
+.site-header,
+.site-footer {
+  text-align: center;
+  z-index: 2;
+  position: relative;
 }
 
-.site-header,
-.site-footer,
-.card {
-  z-index: 1;
-  position: relative;
+.site-footer small {
+  color: rgba(255, 255, 255, 0.4);
+  display: block;
+  margin-top: 40px;
 }
