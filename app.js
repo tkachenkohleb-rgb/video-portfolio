@@ -1,30 +1,27 @@
-// === АНИМАЦИЯ ПОЯВЛЕНИЯ ===
+// === Плавное появление ===
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card");
   cards.forEach((card, i) => {
     setTimeout(() => {
       card.style.opacity = "1";
       card.style.transform = "translateY(0)";
-    }, i * 250);
+    }, i * 300);
   });
 });
 
-// === ДОБАВЛЕНИЕ ФОНА ===
+// === Добавление фона ===
 const ae = document.createElement("div");
 const pr = document.createElement("div");
 ae.classList.add("bg-logo", "bg-ae");
 pr.classList.add("bg-logo", "bg-pr");
 document.body.append(ae, pr);
 
-// === ПЛАВНОЕ ДВИЖЕНИЕ ФОНА ===
-let targetX = 0,
-  targetY = 0,
-  currentX = 0,
-  currentY = 0;
+// === Плавное движение фона ===
+let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
 
 document.addEventListener("mousemove", (e) => {
-  targetX = (e.clientX / window.innerWidth - 0.5) * 40;
-  targetY = (e.clientY / window.innerHeight - 0.5) * 40;
+  targetX = (e.clientX / window.innerWidth - 0.5) * 50;
+  targetY = (e.clientY / window.innerHeight - 0.5) * 50;
 });
 
 function animate() {
@@ -38,6 +35,7 @@ function animate() {
 }
 animate();
 
+// === Реакция на скролл ===
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY * 0.1;
   ae.style.transform = `translateY(${scrollY}px)`;
