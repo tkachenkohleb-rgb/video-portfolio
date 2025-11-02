@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hi there — Video Editing by Gleb</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 id="site-title">Hi there! Let’s make your videos better.</h1>
+    <div class="theme-toggle">
+      <button id="themeBtn" aria-label="Toggle theme">Toggle</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about" class="card"></section>
+
+    <section id="portfolio" class="card">
+      <h2>Portfolio</h2>
+      <div id="projects" class="projects-grid"></div>
+    </section>
+
+    <section id="contacts" class="card">
+      <h2>Contact & Order</h2>
+      <p id="contact-text"></p>
+      <div class="contact-buttons">
+        <a id="telegramBtn" class="btn" target="_blank">Order via Telegram</a>
+        <a id="instagramBtn" class="btn" target="_blank">Instagram</a>
+        <a id="emailBtn" class="btn" href="mailto:">Email</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© Gleb Tkachenko — Video Editing</small>
+    <a href="/admin/" class="admin-link">Admin</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
