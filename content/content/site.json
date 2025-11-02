@@ -1,7 +1,9 @@
 {
-  "author": "Gleb Tkachenko",
-  "contact_blurb": "Contact me below to order high-quality video editing.",
-  "telegram": "https://t.me/tayls223",
-  "instagram": "https://www.instagram.com/gleb_tkachenko__1/",
-  "email": "tkachenko.hleb@gmail.com"
+  "about": "👋 Hi there! Let’s make your videos better.\nI am a video editor with extensive experience.\n\nDo you have your own product? Want to increase your professionalism in the eyes of your viewers? I can help you with that! I will create high-quality, stylish, and premium-looking editing for your videos.\n\nOr do you have your own personal blog? No problem! I will create a dynamic, bright, and colorful video edit for you!\n\nAs you can see, I work with all genres! I'm happy to adapt to your specific goals and style.\n\n🔥 Contact me using the details below and order the best editing service!",
+  "portfolio": [],
+  "contacts": {
+    "telegram": "https://t.me/yourtelegram",
+    "instagram": "https://instagram.com/yourinstagram",
+    "email": "mailto:youremail@example.com"
+  }
 }
